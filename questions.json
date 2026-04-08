@@ -1,0 +1,156 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "text": "Doğru bilgi veren seçeneği işaretleyiniz. Arkadaşlarınızla tanışırken aşağıdaki davranışlardan hangisi uygundur?",
+      "image": null,
+      "audio": "sounds/questions/q1.mp3",
+      "audio_parts": null,
+      "answers": [
+        { "text": "Onları dinlemek ve sorular sormak", "image": null, "audio": null, "correct": true },
+        { "text": "Yüksek sesle konuşarak dikkat çekmek", "image": null, "audio": null, "correct": false },
+        { "text": "Konuşmaları kesmek", "image": null, "audio": null, "correct": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Doğru bilgi veren çocuğun seçeneğini işaretleyiniz. Aşağıdakilerden hangisi İyi bir okul ortamında bulunması gereken en önemli özelliklerden biridir?",
+      "image": null,
+      "audio": "sounds/questions/q2.mp3",
+      "audio_parts": null,
+      "answers": [
+        { "text": "Karmaşık ve düzensiz alanlar", "image": null, "audio": null, "correct": false },
+        { "text": "Hijyenik ve düzenli alanlar", "image": null, "audio": null, "correct": true },
+        { "text": "Yetersiz teknolojik donanım", "image": null, "audio": null, "correct": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Okulun genel işleyişini düzenleyen ve disiplin sağlayan çalışan kimdir?",
+      "image": null,
+      "audio": "sounds/questions/q3.mp3",
+      "audio_parts": null,
+      "answers": [
+        { "text": "Rehberlik ve psikolojik danışman", "image": null, "audio": null, "correct": false },
+        { "text": "Temizlik personeli", "image": null, "audio": null, "correct": false },
+        { "text": "Müdür ve müdür yardımcıları", "image": null, "audio": null, "correct": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Sınıfta konuşmak istediğimizde ne yapmalıyız?",
+      "image": null,
+      "audio": "sounds/questions/q4.mp3",
+      "audio_parts": null,
+      "answers": [
+        { "text": "Sıramızdan kalkıp konuşmalıyız.", "image": null, "audio": null, "correct": false },
+        { "text": "El kaldırıp öğretmenimizin bizi çağırmasını beklemeliyiz.", "image": null, "audio": null, "correct": true },
+        { "text": "Arkadaşlarımızla konuşmalıyız.", "image": null, "audio": null, "correct": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Doğru bilgi veren seçeneği işaretleyiniz. Okul merdivenlerinden dikkatli inip çıkmak neyi sağlar?",
+      "image": null,
+      "audio": "sounds/questions/q5.mp3",
+      "audio_parts": null,
+      "answers": [
+        { "text": "Güvenliği artırır.", "image": null, "audio": null, "correct": true },
+        { "text": "Daha hızlı ulaşmayı sağlar.", "image": null, "audio": null, "correct": false },
+        { "text": "Oyun alanını genişletir.", "image": null, "audio": null, "correct": false }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Aşağıdaki ifadelerden hangisi yanlıştır?",
+      "image": null,
+      "audio": "sounds/questions/q6.mp3",
+      "audio_parts": null,
+      "answers": [
+        { "text": "Boyumuz zamanla uzayabilir.", "image": null, "audio": null, "correct": false },
+        { "text": "İnsanların tüm fiziksel özellikleri aynıdır.", "image": null, "audio": null, "correct": true },
+        { "text": "Fiziksel özelliklerimiz zamanla değişebilir.", "image": null, "audio": null, "correct": false }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "Doğru bilgi veren çocuğun seçeneğini işaretleyiniz. Mert: \"Birine yardım ettiğimizde karşılık beklemeden bunu yapmalıyız.\" Selin: \"Yardımlaşmak gereksizdir, herkes sadece kendi işini yapmalıdır.\" Tuna: \"Evde yalnızca anneler temizlik yapmalı, diğer aile bireyleri hiçbir şeye yardım etmemelidir.\"",
+      "image": null,
+      "audio": "sounds/questions/q7.mp3",
+      "audio_parts": [
+
+        "sounds/questions/q7-qs1.mp3",
+
+        "sounds/questions/q7-qs2.mp3",
+
+        "sounds/questions/q7-qs3.mp3"
+
+    ],
+      "answers": [
+        { "text": "Mert", "image": null, "audio": null, "correct": true },
+        { "text": "Selin", "image": null, "audio": null, "correct": false },
+        { "text": "Tuna", "image": null, "audio": null, "correct": false }
+      ]
+    },
+    {
+      "id": 8,
+      "text": "Yanlış bilgi veren çocuğun seçeneğini işaretleyiniz. Ahmet: \"Yemek yerken başkalarına saygılı olmak çok önemlidir, herkesin düzgün yemek yemesi gerekir.\" Zeynep: \"Yemek sırasında herkes yüksek sesle konuşmalı, bu daha eğlenceli olur.\" Emre: \"Yemek öncesi ve sonrası ellerimizi yıkamak sağlığımız için gereklidir.\"",
+      "image": null,
+      "audio": "sounds/questions/q8.mp3",
+      "audio_parts": [
+
+        "sounds/questions/q8-qs1.mp3",
+
+        "sounds/questions/q8-qs2.mp3",
+
+        "sounds/questions/q8-qs3.mp3"
+
+    ],
+      "answers": [
+        { "text": "Ahmet", "image": null, "audio": null, "correct": false },
+        { "text": "Zeynep", "image": null, "audio": null, "correct": true },
+        { "text": "Emre", "image": null, "audio": null, "correct": false }
+      ]
+    },
+    {
+      "id": 9,
+      "text": "Yanlış bilgi veren çocuğun seçeneğini işaretleyiniz. Murat: \"Ailemizde herkesin bazı görevleri vardır, herkes iş birliği içinde olmalıdır.\" Elif: \"Evde sadece anneler temizlik yapar, diğer aile bireylerinin hiçbir sorumluluğu yoktur.\" Cemal: \"Evde iş bölümü yaparak herkes bir konuda yardımcı olabilir.\"",
+      "image": null,
+      "audio": "sounds/questions/q9.mp3",
+      "audio_parts": [
+
+        "sounds/questions/q9-qs1.mp3",
+
+        "sounds/questions/q9-qs2.mp3",
+
+        "sounds/questions/q9-qs3.mp3"
+
+    ],
+      "answers": [
+        { "text": "Murat", "image": null, "audio": null, "correct": false },
+        { "text": "Elif", "image": null, "audio": null, "correct": true },
+        { "text": "Cemal", "image": null, "audio": null, "correct": false }
+      ]
+    },
+    {
+      "id": 10,
+      "text": "Doğru bilgi veren çocuğun seçeneğini işaretleyiniz. Hasan: \"Evde iş birliği içinde olmak ailemizi daha güçlü yapar.\" Duru: \"Evde kimse birbirine yardım etmek zorunda değildir.\" Emre: \"Evde her şeyi annemiz yapmalıdır, biz hiçbir şey yapmamalıyız.\"",
+      "image": null,
+      "audio": "sounds/questions/q10.mp3",
+      "audio_parts": [
+
+        "sounds/questions/q10-qs1.mp3",
+
+        "sounds/questions/q10-qs2.mp3",
+
+        "sounds/questions/q10-qs3.mp3"
+
+    ],
+      "answers": [
+        { "text": "Hasan", "image": null, "audio": null, "correct": true },
+        { "text": "Duru", "image": null, "audio": null, "correct": false },
+        { "text": "Emre", "image": null, "audio": null, "correct": false }
+      ]
+    }
+  ]
+}
