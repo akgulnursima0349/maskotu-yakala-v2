@@ -2,7 +2,8 @@
 const CONFIG = {
     // Oyun Ayarları
     TOTAL_ROUNDS: 10,
-    QUESTION_TIME: 10, // saniye
+    QUESTION_TIME: 10, // saniye (ses dosyası yoksa kullanılan varsayılan süre)
+    THINKING_TIME: 3,  // saniye (ses bittikten sonra eklenen düşünme süresi)
 
     // Puan Değerleri
     POINTS: {
@@ -216,6 +217,7 @@ const GameState = {
     currentQuestion: null,
     questionTimer: null,
     timeRemaining: CONFIG.QUESTION_TIME,
+    currentQuestionTime: CONFIG.QUESTION_TIME,
 
     // Atış Durumu
     canShoot: false,
@@ -1811,7 +1813,7 @@ function shuffleArray(array) {
     return array;
 }
 
-function showQuestion() {
+async function showQuestion() {
     console.log('showQuestion çağrıldı', GameState.questions.length, 'soru var');
     GameState.currentScreen = 'question';
 
@@ -1935,12 +1937,35 @@ function showQuestion() {
     // Modalı göster
     modal.classList.add('active');
 
-    // Zamanlayıcıyı başlat
+    // Ses sürelerine göre zamanlayıcı süresini hesapla, sonra başlat
+    GameState.currentQuestionTime = await calculateQuestionTime(GameState.currentQuestion);
     startQuestionTimer();
 }
 
+function getAudioDuration(src) {
+    return new Promise((resolve) => {
+        const audio = new Audio();
+        audio.addEventListener('loadedmetadata', () => resolve(audio.duration));
+        audio.addEventListener('error', () => resolve(0));
+        audio.src = src;
+    });
+}
+
+async function calculateQuestionTime(question) {
+    const sources = [];
+    if (question.audio_parts && question.audio_parts.length > 0) {
+        sources.push(...question.audio_parts.filter(Boolean));
+    } else if (question.audio) {
+        sources.push(question.audio);
+    }
+    if (sources.length === 0) return CONFIG.QUESTION_TIME;
+    const durations = await Promise.all(sources.map(getAudioDuration));
+    const total = durations.reduce((sum, d) => sum + d, 0);
+    return Math.ceil(total) + CONFIG.THINKING_TIME;
+}
+
 function startQuestionTimer() {
-    GameState.timeRemaining = CONFIG.QUESTION_TIME;
+    GameState.timeRemaining = GameState.currentQuestionTime;
     updateTimerDisplay();
 
     if (GameState.questionTimer) {
@@ -1962,7 +1987,7 @@ function updateTimerDisplay() {
     const timerBar = document.getElementById('timer-bar');
     const timerText = document.getElementById('timer-text');
 
-    const percentage = (GameState.timeRemaining / CONFIG.QUESTION_TIME) * 100;
+    const percentage = (GameState.timeRemaining / GameState.currentQuestionTime) * 100;
     timerBar.style.width = percentage + '%';
     timerText.textContent = Math.ceil(GameState.timeRemaining);
 
