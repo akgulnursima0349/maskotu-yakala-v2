@@ -78,14 +78,11 @@
       "image": null,
       "audio": "sounds/questions/q7.mp3",
       "audio_parts": [
-
         "sounds/questions/q7-qs1.mp3",
-
         "sounds/questions/q7-qs2.mp3",
-
         "sounds/questions/q7-qs3.mp3"
-
-    ],
+      ],
+      "audio_parts_labels": ["Mert", "Selin", "Tuna"],
       "answers": [
         { "text": "Mert", "image": null, "audio": null, "correct": true },
         { "text": "Selin", "image": null, "audio": null, "correct": false },
@@ -98,14 +95,11 @@
       "image": null,
       "audio": "sounds/questions/q8.mp3",
       "audio_parts": [
-
         "sounds/questions/q8-qs1.mp3",
-
         "sounds/questions/q8-qs2.mp3",
-
         "sounds/questions/q8-qs3.mp3"
-
-    ],
+      ],
+      "audio_parts_labels": ["Ahmet", "Zeynep", "Emre"],
       "answers": [
         { "text": "Ahmet", "image": null, "audio": null, "correct": false },
         { "text": "Zeynep", "image": null, "audio": null, "correct": true },
@@ -118,14 +112,11 @@
       "image": null,
       "audio": "sounds/questions/q9.mp3",
       "audio_parts": [
-
         "sounds/questions/q9-qs1.mp3",
-
         "sounds/questions/q9-qs2.mp3",
-
         "sounds/questions/q9-qs3.mp3"
-
-    ],
+      ],
+      "audio_parts_labels": ["Murat", "Elif", "Cemal"],
       "answers": [
         { "text": "Murat", "image": null, "audio": null, "correct": false },
         { "text": "Elif", "image": null, "audio": null, "correct": true },
@@ -138,14 +129,11 @@
       "image": null,
       "audio": "sounds/questions/q10.mp3",
       "audio_parts": [
-
         "sounds/questions/q10-qs1.mp3",
-
         "sounds/questions/q10-qs2.mp3",
-
         "sounds/questions/q10-qs3.mp3"
-
-    ],
+      ],
+      "audio_parts_labels": ["Hasan", "Duru", "Emre"],
       "answers": [
         { "text": "Hasan", "image": null, "audio": null, "correct": true },
         { "text": "Duru", "image": null, "audio": null, "correct": false },

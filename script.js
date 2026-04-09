@@ -1850,15 +1850,17 @@ function showQuestion() {
     const questionAudioArea = document.getElementById('question-audio-area');
     questionAudioArea.innerHTML = '';
     const audioParts = GameState.currentQuestion.audio_parts;
+    const audioPartsLabels = GameState.currentQuestion.audio_parts_labels;
     const audioSingle = GameState.currentQuestion.audio;
     if (audioParts && audioParts.length > 0) {
-        // Birden fazla konuşma balonu: her biri için ayrı numarlı buton
+        // Birden fazla konuşma balonu: her biri için ayrı etiketli buton
         audioParts.forEach((src, i) => {
             if (!src) return;
             const btn = document.createElement('button');
             btn.className = 'question-audio-btn';
-            btn.title = `${i + 1}. balonu dinle`;
-            btn.textContent = audioParts.length > 1 ? `🔊${i + 1}` : '🔊';
+            const label = audioPartsLabels && audioPartsLabels[i] ? audioPartsLabels[i] : (audioParts.length > 1 ? `${i + 1}` : '');
+            btn.title = `${label || (i + 1)}. balonu dinle`;
+            btn.textContent = `🔊 ${label || (i + 1)}`;
             btn.addEventListener('click', () => AUDIO_MANAGER.playQuestionAudio(src, btn));
             questionAudioArea.appendChild(btn);
         });
