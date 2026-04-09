@@ -1,30 +1,110 @@
 # Ses Dosyaları
 
-Bu klasöre soru ve cevap ses dosyalarını (.mp3) ekleyin.
+Bu klasöre soru ve konuşma balonu ses dosyalarını (.mp3) ekleyin.
 
-## Kullanım
+---
 
-### Tek sesli soru
-questions.json içinde ilgili soruya şunu yazın:
-    "audio": "sounds/questions/DOSYA_ADI.mp3"
+## Dosya İsimlendirme
 
-### Cevap sesi
-İlgili cevaba şunu yazın:
-    "audio": "sounds/questions/DOSYA_ADI.mp3"
+| Dosya adı | Ne için |
+|-----------|---------|
+| `q1.mp3` | 1. sorunun sesli okunması |
+| `q2.mp3` | 2. sorunun sesli okunması |
+| `q7.mp3` | 7. sorunun sesli okunması (varsa) |
+| `q7-qs1.mp3` | 7. sorudaki 1. konuşma balonunun sesi |
+| `q7-qs2.mp3` | 7. sorudaki 2. konuşma balonunun sesi |
 
-### Konuşma balonlu soru (birden fazla parça)
-    "audio_parts": [
-        "sounds/questions/DOSYA1.mp3",
-        "sounds/questions/DOSYA2.mp3",
-        "sounds/questions/DOSYA3.mp3"
-    ]
+Genel kural: `q{soruNo}.mp3` ve `q{soruNo}-qs{balonNo}.mp3`
 
-## Önerilen isimlendirme
-    q1.mp3          → 1. sorunun sesi
-    q1_a1.mp3       → 1. sorunun 1. cevabının sesi
-    q1_a2.mp3       → 1. sorunun 2. cevabının sesi
-    q3_parca1.mp3   → 3. sorunun 1. konuşma balonunun sesi
-    q3_parca2.mp3   → 3. sorunun 2. konuşma balonunun sesi
+---
+
+## questions.json Kullanımı
+
+### Tek sesli soru (hoparlör ikonu çıkar)
+
+```json
+{
+  "id": 1,
+  "text": "Soru metni...",
+  "audio": "sounds/questions/q1.mp3",
+  "audio_parts": null,
+  "answers": [...]
+}
+```
+
+### Konuşma balonlu soru — sadece ses (🔊 Mert, 🔊 Selin gibi görünür)
+
+```json
+{
+  "id": 7,
+  "text": "Soru metni...",
+  "audio": "sounds/questions/q7.mp3",
+  "audio_parts": [
+    "sounds/questions/q7-qs1.mp3",
+    "sounds/questions/q7-qs2.mp3",
+    "sounds/questions/q7-qs3.mp3"
+  ],
+  "audio_parts_labels": ["Mert", "Selin", "Tuna"],
+  "answers": [...]
+}
+```
+
+> `audio_parts_labels` eklenmezse butonlar `🔊 1`, `🔊 2`, `🔊 3` şeklinde görünür.
+
+### Konuşma balonlu soru — ses + görsel (resim ve isim birlikte görünür)
+
+```json
+{
+  "id": 7,
+  "text": "Soru metni...",
+  "audio": "sounds/questions/q7.mp3",
+  "audio_parts": [
+    "sounds/questions/q7-qs1.mp3",
+    "sounds/questions/q7-qs2.mp3",
+    "sounds/questions/q7-qs3.mp3"
+  ],
+  "audio_parts_labels": ["Mert", "Selin", "Tuna"],
+  "audio_parts_images": [
+    "images/mert.png",
+    "images/selin.png",
+    "images/tuna.png"
+  ],
+  "answers": [...]
+}
+```
+
+> Görsel dosyalarını istediğiniz klasöre koyabilirsiniz, yolu doğru yazmanız yeterli.
+> `audio_parts_images` eklenmezse sadece isim+hoparlör ikonu görünür, görsel olmadan çalışır.
+
+### Cevap sesi (şıkların yanında hoparlör ikonu çıkar)
+
+```json
+"answers": [
+  { "text": "Mert", "audio": "sounds/questions/q7-a1.mp3", "correct": true },
+  { "text": "Selin", "audio": null, "correct": false }
+]
+```
+
+> `audio` alanı `null` olan şıklarda ses ikonu çıkmaz.
+
+---
 
 ## Ses yoksa
-audio veya audio_parts alanını null bırakın. Ses butonu görünmez.
+
+`audio` ve `audio_parts` alanlarını `null` bırakın. Ses butonu hiç görünmez.
+
+```json
+"audio": null,
+"audio_parts": null
+```
+
+---
+
+## Özet: Hangi alanlar zorunlu, hangileri opsiyonel?
+
+| Alan | Zorunlu mu? | Açıklama |
+|------|------------|----------|
+| `audio` | Hayır | Tek ses butonu için |
+| `audio_parts` | Hayır | Birden fazla konuşma balonu için |
+| `audio_parts_labels` | Hayır | Butonlarda isim göstermek için |
+| `audio_parts_images` | Hayır | Butonlarda görsel göstermek için |
