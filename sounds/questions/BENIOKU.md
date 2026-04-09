@@ -100,6 +100,38 @@ Genel kural: `q{soruNo}.mp3` ve `q{soruNo}-qs{balonNo}.mp3`
 
 ---
 
+## Soru Süresi (Zamanlayıcı)
+
+Zamanlayıcı süresi otomatik olarak hesaplanır: ses dosyasının/dosyalarının toplam uzunluğu + düşünme süresi.
+
+### Genel düşünme süresi (tüm sorular için)
+
+`questions.json` dosyasının en üstüne ekleyin:
+
+```json
+{
+  "thinking_time": 3,
+  "questions": [...]
+}
+```
+
+### Soru bazında farklı düşünme süresi
+
+İlgili sorunun içine ekleyin:
+
+```json
+{
+  "id": 7,
+  "thinking_time": 5,
+  ...
+}
+```
+
+> Soru bazında `thinking_time` varsa o kullanılır, yoksa üstteki genel değer devreye girer.
+> Ses dosyası hiç yoksa varsayılan olarak 10 saniye kullanılır.
+
+---
+
 ## Özet: Hangi alanlar zorunlu, hangileri opsiyonel?
 
 | Alan | Zorunlu mu? | Açıklama |
@@ -108,3 +140,4 @@ Genel kural: `q{soruNo}.mp3` ve `q{soruNo}-qs{balonNo}.mp3`
 | `audio_parts` | Hayır | Birden fazla konuşma balonu için |
 | `audio_parts_labels` | Hayır | Butonlarda isim göstermek için |
 | `audio_parts_images` | Hayır | Butonlarda görsel göstermek için |
+| `thinking_time` | Hayır | Ses bittikten sonra eklenen düşünme süresi (saniye) |
