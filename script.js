@@ -1795,6 +1795,7 @@ async function loadQuestions() {
         const response = await fetch('questions.json');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
+        if (data.thinking_time != null) CONFIG.THINKING_TIME = data.thinking_time;
         GameState.questions = shuffleArray([...data.questions]);
         console.log('Sorular JSON dosyasından yüklendi:', GameState.questions.length);
     } catch (error) {
@@ -1959,9 +1960,10 @@ async function calculateQuestionTime(question) {
         sources.push(question.audio);
     }
     if (sources.length === 0) return CONFIG.QUESTION_TIME;
+    const thinkingTime = question.thinking_time != null ? question.thinking_time : CONFIG.THINKING_TIME;
     const durations = await Promise.all(sources.map(getAudioDuration));
     const total = durations.reduce((sum, d) => sum + d, 0);
-    return Math.ceil(total) + CONFIG.THINKING_TIME;
+    return Math.ceil(total) + thinkingTime;
 }
 
 function startQuestionTimer() {
