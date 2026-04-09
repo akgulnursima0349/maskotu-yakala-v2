@@ -805,6 +805,31 @@ body {
     color: white;
 }
 
+/* Görsel içeren ses butonu */
+.question-audio-btn--image {
+    border-radius: 12px;
+    width: auto;
+    height: auto;
+    padding: 6px 10px;
+    flex-direction: column;
+    gap: 4px;
+}
+.question-audio-btn--image img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    border-radius: 6px;
+    pointer-events: none;
+}
+.question-audio-btn--image span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1565C0;
+}
+.question-audio-btn--image.playing span {
+    color: white;
+}
+
 #feedback-container,
 #feedback-icon {
     display: none !important;

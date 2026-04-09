@@ -1851,16 +1851,31 @@ function showQuestion() {
     questionAudioArea.innerHTML = '';
     const audioParts = GameState.currentQuestion.audio_parts;
     const audioPartsLabels = GameState.currentQuestion.audio_parts_labels;
+    const audioPartsImages = GameState.currentQuestion.audio_parts_images;
     const audioSingle = GameState.currentQuestion.audio;
     if (audioParts && audioParts.length > 0) {
         // Birden fazla konuşma balonu: her biri için ayrı etiketli buton
         audioParts.forEach((src, i) => {
             if (!src) return;
             const btn = document.createElement('button');
-            btn.className = 'question-audio-btn';
             const label = audioPartsLabels && audioPartsLabels[i] ? audioPartsLabels[i] : (audioParts.length > 1 ? `${i + 1}` : '');
+            const imgSrc = audioPartsImages && audioPartsImages[i];
+            if (imgSrc) {
+                btn.className = 'question-audio-btn question-audio-btn--image';
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = label;
+                btn.appendChild(img);
+                if (label) {
+                    const span = document.createElement('span');
+                    span.textContent = label;
+                    btn.appendChild(span);
+                }
+            } else {
+                btn.className = 'question-audio-btn';
+                btn.textContent = `🔊 ${label || (i + 1)}`;
+            }
             btn.title = `${label || (i + 1)}. balonu dinle`;
-            btn.textContent = `🔊 ${label || (i + 1)}`;
             btn.addEventListener('click', () => AUDIO_MANAGER.playQuestionAudio(src, btn));
             questionAudioArea.appendChild(btn);
         });
